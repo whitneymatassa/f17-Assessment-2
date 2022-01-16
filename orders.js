@@ -1,6 +1,4 @@
-cd ../////////////////////////////////////////////////
-///////////////////ORDERS.JS/////////////////////
-/////////////////////////////////////////////////
+
 /*
     In this file, you'll be writing a class
     to make tickets from order information.
@@ -35,13 +33,18 @@ class Ticket{
         this.items = items
         this.orderTime = orderTime
         this.customerId = customerId
-        this.status = 'queued'
+        this.status = "queued"
+    } 
+    updateStatus(){
+        this.status = newStatus
+        console.log(`The order for ${this.customerId} is now ${this.status}`)
     }
 }
 
-updateStatus(newStatus){
-    console.log('The order for customer',this.customerId, 'is now', newStatus)
-}
+let ticket1 = new Ticket("coffee and bagel", "10 minutes", "Mark Nelson")
+newStatus = 'ready'
+ticket1.updateStatus();
+
 
 
 /*
@@ -54,7 +57,8 @@ updateStatus(newStatus){
     ordered at: 7:03 PM
     customer: 575
 */
-
+let firstTicket = new Ticket("pizza, bread, and soda", "7:03 PM", "575")
+console.log(firstTicket)
 //CODE HERE
 
 
@@ -63,5 +67,5 @@ updateStatus(newStatus){
     `firstTicket` passing in the string
     'cooking'
 */
-
+firstTicket.updateStatus('cooking')
 //CODE HERE

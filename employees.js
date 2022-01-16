@@ -23,13 +23,14 @@
 class Employee{
     constructor(name, shifts){
         this.name = name;
-        this.color = color;
+        this.shifts = shifts;
     }
+    getSchedule(){
+        console.log(`${this.name} works on ${this.shifts}.`)
+    }
+    
 }
 
-getSchedule(){
-    console.log()
-}
 
 /*
     Create a new instance of your class.
@@ -40,6 +41,7 @@ getSchedule(){
     name: Jess
     shifts: weekday mornings, weekday afternoons
 */
+let empOne = new Employee('Jess', 'weekday mornings, weekday afternoons')
 
 //CODE HERE
 
@@ -47,7 +49,7 @@ getSchedule(){
     Call the `getSchedule` method on the
     `empOne` object.
 */
-
+empOne.getSchedule();
 //CODE HERE
 
 
@@ -62,6 +64,11 @@ getSchedule(){
     spread operator or reassign it using 
     dot or bracket notation.
 */
+let empTwo = {...empOne}
+
+
+empTwo.name = 'Nick'
+console.log(empTwo)
 
 //CODE HERE
 
@@ -92,6 +99,21 @@ getSchedule(){
 
 //CODE HERE
 
+class Manager{
+    constructor(name, shifts, employees) {
+        this.name = name;
+        this.shifts = shifts;
+        this.employees = employees;
+
+    }
+    getEmployees(){
+        console.log(`${this.name} manages ${this.employees}`)
+    }
+    addEmployee(employee){
+     this.employees.push(employee);
+    }
+}
+
 
 
 /*
@@ -106,13 +128,13 @@ getSchedule(){
 */
 
 //CODE HERE
-
+let manager = new Manager('Winston', 'weekday mornings and weekday afternoons', 'Cece and Schmidt')
 
 /*
     Call the `getEmployees` method on the
     `manager` object.  
 */
-
+manager.getEmployees();
 //CODE HERE
 
 /*
@@ -120,7 +142,7 @@ getSchedule(){
     `manager` object passing in the string 
     'Coach' or whatever name you'd like.
 */
-
+manager.addEmployee('Coach');
 //CODE HERE 
 
 /*
@@ -128,5 +150,5 @@ getSchedule(){
     `manager` object again to confirm 
     that an employee was added.
 */
-
+manager.getEmployees();
 //CODE HERE
