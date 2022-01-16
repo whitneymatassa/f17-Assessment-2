@@ -20,8 +20,16 @@
 */
 
 //CODE HERE
+class Employee{
+    constructor(name, shifts){
+        this.name = name;
+        this.color = color;
+    }
+}
 
-
+getSchedule(){
+    console.log()
+}
 
 /*
     Create a new instance of your class.
