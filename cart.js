@@ -34,19 +34,9 @@ const cart = [
 ]
 
 //CODE HERE
+const summedPrice = cart.reduce((a, c) => a +c.price, 0)
 
-class Cart {
-    constructor(name, price){
-        this.name = name
-        this.price = price
-    }
-}
-
-const summedPrice = cart.price.reduce(function(acc, elem){
-   return acc + elem
-})
-
-//console.log(summedPrice)
+console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -64,7 +54,11 @@ const summedPrice = cart.price.reduce(function(acc, elem){
 */
 
 //CODE HERE
-
+function calcFinalPrice(cartTotal, couponValue, tax){
+    cartTotal *= 1 + tax
+    cartTotal -= couponValue
+    return cartTotal
+}
 
 
 //////////////////PROBLEM 3////////////////////
@@ -89,12 +83,19 @@ const summedPrice = cart.price.reduce(function(acc, elem){
 
 /*
     TEXT ANSWER HERE
-
+ Customer object information could have such properties as: name (name = 'String'), number of guests in their party (party = number <--- identify size, determine if can fit at tables or how many peoples orders are completed by this customer party being served), if they have placed their order yet (orderPlaced = boolean <--- identify if their order still needs to be taken or if its just waiting to be ready), employee who took the order (empName = 'String' <- can match all orders taken by specific employee) and estimated wait time in minutes( waitMins = number <--- can filter out all customers with food coming within or outside of time frame).
 */
 
 /*
     Now, create a customer object following your own
     guidelines.
 */
-
+const customer = {
+    name: 'Becky',
+    party: 4,
+    orderPlaced: true,
+    empName: 'Steven',
+    waitMins: 26
+}
 //CODE HERE
+console.log(customer)

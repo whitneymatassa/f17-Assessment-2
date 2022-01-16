@@ -67,5 +67,6 @@ console.log(firstTicket)
     `firstTicket` passing in the string
     'cooking'
 */
-firstTicket.updateStatus('cooking')
+firstTicket.updateStatus = 'cooking';
+console.log(firstTicket)
 //CODE HERE
