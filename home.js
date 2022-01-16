@@ -55,18 +55,19 @@ greetUser('Andrew')
 
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
+const deliveryAreaZipCodesStr = String(deliveryAreaZipCodes)
 //CODE HERE
-
-function weCanDeliver(zipCode){
-    for (let i=0; i<=deliveryAreaZipCodes.length; i++){
-        if (deliveryAreaZipCodes[i] === 'zipcode'){
-            console.log("You're in our delivery zone")
-        } else {
-            console.log("Sorry, we can't delivier to that address")
-        }
-    }
+function weCanDeliver(zipcode)
+{ return(deliveryAreaZipCodesStr.indexOf(zipcode) >= 0)
 }
- weCanDeliver('15886')
+
+let zipcode = 85213
+
+if (weCanDeliver(zipcode) === false){
+    console.log("Sorry, we can't deliver to that address")
+} else (console.log("You're in our delivery zone!"))
+
+
 /* 
     Problem 2 Continued
 
@@ -83,6 +84,15 @@ function weCanDeliver(zipCode){
     loop (for loop, higher order array method).
     Name your new function `canWeDeliverTwo`.
 */
+function canWeDeliverTwo(zipcode2){
+    return (deliveryAreaZipCodesStr.includes(zipcode2))
+}
+
+let zipcode2 = 84512
+
+if (weCanDeliver(zipcode2) === false){
+    console.log("Sorry, we can't deliver to that address")
+} else (console.log("You're in our delivery zone!"))
 
 // CODE HERE
 
@@ -121,7 +131,10 @@ const deals = [
 */
 
 //CODE HERE
+let newStr = deals[0].title.replace("15", "10")
+deals[0].title=newStr;
 
+console.log(deals[0])
 
 
 /*
@@ -136,5 +149,6 @@ const deals = [
     whitespace in this string, since it seems
     to be displaying wrong on the live site.
 */
-
+deals[1].desc = deals[1].desc.replace('March','April').trim()
+console.log(deals[1])
 //CODE HERE

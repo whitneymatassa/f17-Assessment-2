@@ -60,7 +60,7 @@ console.log(pizza.popularity)
     Use a combination of dots and brackets to
     get the value.
 */
-console.log(pizza.tags[1])
+//console.log(pizza.tags[1])
 //CODE HERE
 
 
@@ -110,11 +110,11 @@ class Food {
     }
 }
 
-let food1 = new Food('pasta', 12, 'entree', 6, 8, ['saucy', 'with meat'])
-let food2 = new Food('sandwich', 8, 'lunch', 9, 7, ['wheat bun', 'with fries'])
-let food3 = new Food('soup', 6, 'appetizer', 5, 6, ['bowl', 'with roll', 'spicy'])
-let food4 = new Food('chicken wings', 9, 'appetizer', 10, 4, ['buffalo sauce', 'with ranch'])
-let food5 = new Food('milkshake', 5, 'dessert', 7, 9, ['choose your own mix ins', 'vanilla base'])
+let food1 = new Food('pasta', 12, 'entree', 6, 8, ['saucy', 'meat', 'with ranch'])
+let food2 = new Food('sandwich', 8, 'lunch', 9, 7, ['bun', 'with side'])
+let food3 = new Food('soup', 6, 'appetizer', 5, 6, ['bowl', 'with side', 'spicy'])
+let food4 = new Food('chicken wings', 9, 'appetizer', 10, 4, ['saucey', 'spicy', 'with ranch'])
+let food5 = new Food('milkshake', 5, 'dessert', 7, 9, ['mix ins', 'sweet', 'drink'])
 
 foodArr = [food1, food2, food3, food4, food5]
 //CODE HERE
@@ -132,25 +132,16 @@ console.log(food1)
     You can check for any tag that at least 1 of
     your food objects has.
 */
-function containsTags(array, name, callback){
-    if (array.includes(name) === true) {
-        return callback(true)
-    } else {
-        return callback(false)
-    }
-}
+
 //CODE HERE
-containsTags(foodArr, tags[i], result => {
-    for(let i=0; i < tags.length; i++)
-     if (result === true){
-        console.log('includes tags')
-    } else {
-        console.log('does not include tags')
+
+const filteredFood = foodArr.filter(foodObject => {
+    if (foodObject.tags.includes('spicy')){
+        return true;
     }
 })
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
 
-
+console.log(filteredFood)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -190,6 +181,17 @@ containsTags(foodArr, tags[i], result => {
     
     Return the filtered array from the entire function
 */
+function filterByProperty(property, number, type){
+    const filtered = foodArr.filter(function(foodObject){
+        if (type === 'above'){
+            return foodObject[property] > number
+        } else { 
+            return foodObject[property] < number 
+        }
+    })
+    console.log(filtered)
+    return filtered;
+}
 
 //CODE HERE
 
@@ -200,5 +202,5 @@ containsTags(foodArr, tags[i], result => {
 
     You'll have to console.log to see the filtered array
 */
-
+console.log(filterByProperty('price',5,'above'))
 //CODE HERE
